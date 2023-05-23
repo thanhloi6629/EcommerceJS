@@ -1,0 +1,68 @@
+<script>
+    if (sessionStorage.getItem('carts') == undefined) {
+        window.location = "../home"
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận đơn hàng</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+
+<body>
+    <header class="bg-success py-5" id="thCuahang"></header>
+
+    <div class="px-4">
+        <h1>Giỏ hàng của bạn</h1>
+        <button onclick="xacNhandonHang()">Xác nhận Đơn hàng</button>
+    </div>
+
+    <hr>
+    <div>
+        <div class="row p-4" id="khung">
+            <div id="thKhach"></div>
+            <hr>
+            <table>
+                <tr style="text-align: center; background-color: chocolate; color: white;">
+                    <td>Hình </td>
+                    <td>Tên </td>
+                    <td>Số lượng</td>
+                    <td>Đơn giá Bán</td>
+                    <td>Thành tiền</td>
+                </tr>
+                <tbody id="Th_Carts"></tbody>
+            </table>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark fixed-bottom">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
+        </div>
+    </footer>
+    <script src="../js/api.js"></script>
+    <script src="../js/home.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+
+        apiCuahang().then(result => {
+            cuaHang = result[0];
+            xuatCuahang(cuaHang, thCuahang);
+            carts = JSON.parse(sessionStorage.getItem("carts"))
+            xuatConfrimCart(carts,Th_Carts)
+        }).catch(err => {
+            console.log(err);
+        })
+
+    </script>
+</body>
+
+</html>
