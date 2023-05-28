@@ -1,0 +1,31 @@
+https://cloudinary.com/documentation/upload_images
+https://cloudinary.com/documentation/image_upload_api_reference
+
+
+
+Đăng ký tài khoản: https://cloudinary.com/
+
+natuant3h@gmail.com
+natu@nT3H
+
+CLOUD_NAME=drahkjifm
+API_KEY=191377473611149
+API_SECRET=wIcLRzFWzG_guju3JuGGl6pHkH0
+
+CLOUDINARY_URL=cloudinary://191377473611149:wIcLRzFWzG_guju3JuGGl6pHkH0@drahkjifm
+
+
+-------------------------------------------------------------------------------
+Server
+
+npm i cloudinary --s
+
+Create file : cloudinaryImages.js
+
+const cloudinary = require("cloudinary");
+
+
+
+
+
+
